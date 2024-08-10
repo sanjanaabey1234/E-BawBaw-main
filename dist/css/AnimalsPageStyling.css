@@ -1,0 +1,79 @@
+.table-container {
+    margin: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+}
+
+.fixed-header {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fixed-header thead {
+    background-color: #f9f9f9;
+    position: sticky;
+    top: 0;
+}
+
+.fixed-header th, .fixed-header td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.fixed-header th {
+    background-color: #f4f4f4;
+}
+
+.fixed-header tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.fixed-header tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.edit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    opacity: 0.8;
+}
+
+
+.link-button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    padding: 0;
+    text-decoration: none;
+    cursor: pointer;
+    font: inherit;
+    display: inline;
+    margin: 0;
+}
+
+.link-button:focus {
+    outline: none;
+}
