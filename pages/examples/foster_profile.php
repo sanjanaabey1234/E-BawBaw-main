@@ -103,86 +103,86 @@ switch ($animal_type) {
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 
     <style>
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .card {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-    .card:hover {
-        transform: translateY(-10px);
-    }
+        .card:hover {
+            transform: translateY(-10px);
+        }
 
-    .card img {
-        width: 300px;
-        height: 200px;
-        object-fit: cover;
-    }
+        .card img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
 
-    .card-body {
-        padding: 16px;
-    }
+        .card-body {
+            padding: 16px;
+        }
 
-    .heading {
-        font-size: 1.5em;
-        margin-bottom: 8px;
-        color: #333;
-    }
+        .heading {
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            color: #333;
+        }
 
-    .category {
-        font-size: 1.2em;
-        margin-bottom: 12px;
-        color: #007bff;
-    }
+        .category {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            color: #007bff;
+        }
 
-    .list-item {
-        margin-bottom: 8px;
-        display: flex;
-        justify-content: space-between;
-    }
+        .list-item {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .list-item div {
-        font-size: 1em;
-        color: #555;
-    }
+        .list-item div {
+            font-size: 1em;
+            color: #555;
+        }
 
-    .view-animal {
-        margin-top: 12px;
-        color: #007bff;
-        cursor: pointer;
-        text-decoration: underline;
-        text-align: center;
-    }
+        .view-animal {
+            margin-top: 12px;
+            color: #007bff;
+            cursor: pointer;
+            text-decoration: underline;
+            text-align: center;
+        }
 
-    .add-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
+        .add-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
 
-    .add-card img {
-        width: 100px;
-        height: 100px;
-        margin: 16px 0;
-    }
+        .add-card img {
+            width: 100px;
+            height: 100px;
+            margin: 16px 0;
+        }
 
-    .add-card-text {
-        font-size: 1.2em;
-        color: #007bff;
-        margin-bottom: 16px;
-        text-align: center;
-    }
+        .add-card-text {
+            font-size: 1.2em;
+            color: #007bff;
+            margin-bottom: 16px;
+            text-align: center;
+        }
     </style>
     </head>
 
@@ -335,7 +335,8 @@ switch ($animal_type) {
                                         </div>
 
                                         <h3 class="profile-username text-center">
-                                            <?php echo htmlspecialchars($foster['foster_parent']); ?></h3>
+                                            <?php echo htmlspecialchars($foster['foster_parent']); ?>
+                                        </h3>
 
                                         <p class="text-muted text-center">Foster Parent</p>
 
@@ -365,7 +366,8 @@ switch ($animal_type) {
                                 <div class="card card-primary">
                                     <div class="card-header">
                                         <h3 class="card-title">Foster Parent |
-                                            <?php echo htmlspecialchars($foster['foster_parent']); ?></h3>
+                                            <?php echo htmlspecialchars($foster['foster_parent']); ?>
+                                        </h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <div class="card-body">
@@ -421,22 +423,22 @@ switch ($animal_type) {
                                                 <h4 class="mt-4">Follow Up Records</h4>
 
                                                 <?php
-                                        $sql_follow_up = "SELECT * FROM foster_follow_up WHERE foster_parent_id = ? ORDER BY created_at DESC";
-                                        $stmt = $conn->prepare($sql_follow_up);
-                                        $stmt->bind_param("i", $foster_parent_id);
-                                        $stmt->execute();
-                                        $follow_up_result = $stmt->get_result();
-                                     
-                                        ?>
+                                                $sql_follow_up = "SELECT * FROM foster_follow_up WHERE foster_parent_id = ? ORDER BY created_at DESC";
+                                                $stmt = $conn->prepare($sql_follow_up);
+                                                $stmt->bind_param("i", $foster_parent_id);
+                                                $stmt->execute();
+                                                $follow_up_result = $stmt->get_result();
+
+                                                ?>
                                                 <?php while ($row = $follow_up_result->fetch_assoc()): ?>
-                                                <div class="post">
-                                                    <div class="user-block">
-                                                        <a href="#"><b>Admin</b></a>
-                                                        <p><?php echo htmlspecialchars($row['created_at']); ?>
-                                                        </p>
+                                                    <div class="post">
+                                                        <div class="user-block">
+                                                            <a href="#"><b>Admin</b></a>
+                                                            <p><?php echo htmlspecialchars($row['created_at']); ?>
+                                                            </p>
+                                                        </div>
+                                                        <p><?php echo htmlspecialchars($row['details']); ?></p>
                                                     </div>
-                                                    <p><?php echo htmlspecialchars($row['details']); ?></p>
-                                                </div>
                                                 <?php endwhile; ?>
 
                                                 <!-- Post -->
@@ -453,49 +455,53 @@ switch ($animal_type) {
 
 
                                             </div>
-                                            <!-- /.tab-pane -->
 
                                             <!-- /.tab-pane -->
                                             <div class="tab-pane" id="settings">
                                                 <div class="post">
-
                                                     <?php if ($animals_result->num_rows > 0) { ?>
-                                                    <div class="card-container">
-                                                        <?php while ($animal = $animals_result->fetch_assoc()) { ?>
-                                                        <div class="text-center">
-                                                            <img class="profile-user-img img-fluid img-circle"
-                                                                src="<?php echo htmlspecialchars($image_src); ?>"
-                                                                alt="User profile picture">
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <h5 class="heading">
-                                                                <?php echo htmlspecialchars($animal['name']); ?>
-                                                            </h5>
-                                                            <p class="category">
-                                                                <?php echo htmlspecialchars($animal['animalType']); ?>
-                                                            </p>
-                                                            <div class="list-item">
-                                                                <div>Age:</div>
-                                                                <div><?php echo htmlspecialchars($animal['age']); ?>
+                                                        <div class="row">
+                                                            <?php while ($animal = $animals_result->fetch_assoc()) { ?>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <div class="card">
+                                                                        <div class="text-center">
+                                                                            <img class="profile-user-img img-fluid img-circle"
+                                                                                src="<?php echo htmlspecialchars($image_src); ?>"
+                                                                                alt="User profile picture">
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <h5 class="heading">
+                                                                                <?php echo htmlspecialchars($animal['name']); ?>
+                                                                            </h5>
+                                                                            <p class="category">
+                                                                                <?php echo htmlspecialchars($animal['animalType']); ?>
+                                                                            </p>
+                                                                            <div class="list-item">
+                                                                                <div>Age:</div>
+                                                                                <div>
+                                                                                    <?php echo htmlspecialchars($animal['age']); ?>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="list-item">
+                                                                                <div>Gender:</div>
+                                                                                <div>
+                                                                                    <?php echo htmlspecialchars($animal['animalSex']); ?>
+                                                                                </div>
+                                                                            </div>
+                                                                            <a href="animal_profile.php?id=<?php echo $animal['animal_id']; ?>"
+                                                                                class="view-animal">View Profile</a>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="list-item">
-                                                                <div>Gender:</div>
-                                                                <div>
-                                                                    <?php echo htmlspecialchars($animal['animalSex']); ?>
-                                                                </div>
-                                                            </div>
-                                                            <a href="animal_profile.php?id=<?php echo $animal['animal_id']; ?>"
-                                                                class="view-animal">View Profile</a>
+                                                            <?php } ?>
                                                         </div>
-                                                    </div>
+                                                    <?php } else { ?>
+                                                        <p>No animals found for this foster parent.</p>
+                                                    <?php } ?>
                                                 </div>
-                                                <?php } ?>
                                             </div>
-                                            <?php } else { ?>
-                                            <p>No animals found for this foster parent.</p>
-                                            <?php } ?>
-                                            </>
+
+
                                             <!-- /.card-body -->
                                         </div>
                                         <!-- /.card -->
